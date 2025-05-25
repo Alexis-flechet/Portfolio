@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/NavBkfjdfkjb dar.jsx";
+import { Navbar } from "@/components/NavBar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
