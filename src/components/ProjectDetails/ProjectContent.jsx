@@ -1,4 +1,4 @@
-import projects from "@/data/projectsData";
+import projects from "@/data/ProjectsData";
 import { Section } from "lucide-react";
 
 const ProjectContent = ({ id }) => {

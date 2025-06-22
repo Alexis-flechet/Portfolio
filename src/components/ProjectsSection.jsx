@@ -1,5 +1,5 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
-import projects from "@/data/projectsData";
+import projects from "@/data/ProjectsData";
 
 export const ProjectsSection = () => {
   return (
