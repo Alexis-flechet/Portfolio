@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import projects from "@/data/projectsData.js";
+import projects from "@/data/ProjectsData";
 import ProjectContent from "@/components/ProjectDetails/ProjectContent";
 import { ProjectNavbar } from "@/components/ProjectDetails/ProjectNavbar";
 
