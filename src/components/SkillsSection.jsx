@@ -17,19 +17,20 @@ const skills = [
   { name: "SQLite", category: "backend", projectList : ["GroovAPI"]  },
   { name: "MongoDB", category: "backend", projectList : ["GroovAPI"]  },
   
-  // Autres languages
-  { name: "C++", category: "autres", projectList : ["QuadTree"]  },
-  { name: "C#", category: "autres", projectList : ["Noctowl's dream", "Projet Paintball"]  },
+  // Langages languages
+  { name: "C++", category: "Langages", projectList : ["QuadTree"]  },
+  { name: "C#", category: "Langages", projectList : ["Noctowl's dream", "Projet Paintball"]  },
+  { name: "Python", category: "Langages", projectList : ["Human Benchmark"]  },
 
   // Outils et logiciels
   { name: "Git/GitHub", category: "outils", projectList : ["Tous les projets"]  },
   { name: "Unity", category: "outils", projectList : ["Noctowl's dream", "Projet Paintball"]  },
   { name: "Visual Studio", category: "outils", projectList : ["Noctowl's dream", "Projet Paintball", "QuadTree"]  },
-  { name: "VSCode", category: "outils", projectList : ["GroovAPI"]  }
+  { name: "VSCode", category: "outils", projectList : ["GroovAPI", "HumanBenchmark"]  }
 
 ];
 
-const categories = ["Tous", "frontend", "backend", "autres", "outils"];
+const categories = ["Tous", "frontend", "backend", "Langages", "outils"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("Tous");
