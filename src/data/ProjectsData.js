@@ -94,21 +94,17 @@ const projects = [
     headline: "Le paintball peut-il devenir une forme d’art interactif ?",
     subject:
       "Développement d’un jeu de simulation de paintball en réalité virtuelle",
-    logo: "/projects/project3.png",
+    logo: "logo.png",
     tags: ["VR", "Unity", "C#"],
 
     introduction: [
       {
         text: "Parmi les technologies les plus révolutionnaires des 20 dernières années, on retrouve la VR ou réalité virtuelle. En effet, il s’agit de recréer des environnements immersifs à travers différents capteurs. Le but est alors de tromper l’utilisateur en reproduisant artificiellement ses différents sens afin qu’il ait une impression de se retrouver physiquement présent dans un nouveau monde. Afin de recréer ces environnements interactifs, on peut notamment utiliser le moteur de jeu Unity. Le logiciel comprend une partie dédiée à la réalité virtuelle permettant notamment de gérer les différentes actions utilisateur. C’est alors en utilisant ce moteur que nous avons mis en place avec 6 autres camarades, un jeu pouvant exploiter au maximum la technologie et créé une expérience immersive. Le but final du projet était alors de créer un simulateur d paintball où l’utilisateur peur tirer des billes de peintures afin de remplir des statues qui lui sont présentées.",
-        image: "/assets/images/groovapi-intro.png", // facultatif
-        align: "left", // "left" | "right" (optionnel)
       },
     ],
     missions: [
       {
         text: "La réalisation de ce projet s’est alors exclusivement basée sur le moteur de jeu Unity avec la template VR. Mon rôle dans l’équipe était de créer le système entier de peinture. Pour cela, j’ai utilisé les Shaders, fonctionnalité implémentée de base sur Unity. L’objectif principal était de permettre un changement de couleur localisé sur la texture d’un objet, en suivant un motif prédéfini, afin d’obtenir un effet de peinture éclaboussée, similairement au jeu Splatoon de Nintendo.",
-        image: "/assets/images/groovapi-api.png",
-        align: "right",
       },
     ],
     explanation: [
@@ -117,11 +113,13 @@ const projects = [
       },
       {
         text: "Pour cela, on utilise les shaders d'Unity. Sauf qu’un problème est levé, les coordonnées dans le monde 3D d'Unity sont différentes des coordonnées 2D de la texture. La première étape de programmation consiste alors à retrouver un point sur la texture en fonction d’un point sur le modèle 3D. Finalement grâce à certaines fonctionnalités, déjà inclues dans les shaders, il est possible de connaître où peut atterrir une future balle de paintball sur la texture. Ensuite, afin de peindre la statue sans modifier la texture originelle. Pour cela, on utilise une Render Texture en plus de la texture originelle. Son but est de contenir toute la peinture pour ensuite recourir la statue avec cette peinture. On a alors la texture de base puis on ajoute toute la peinture qui recouvre. Maintenant que la statue possède un moyen d’afficher la peinture, place au système d’ajout de la peinture.",
-        image: "/assets/images/groovapi-swagger.png",
+        image: "paint.png",
         align: "left",
       },
       {
         text: "Il fallait alors mettre en place la peinture. Pour cela, une fois les coordonnées du point d’impact entre la bille et la statue enregistrées sur la texture originelle, on peut faire un cercle de couleur sur la render texture. Cela fonctionne bien, mais on obtient un autre problème, la peinture est mal répartie sur la statue. En effet, l’UV map des objets ne correspond pas à la vue de la statue, on peut par exemple avoir la partie de la texture correspondant au bras à côté de la texture du pied. Faire un simple cercle ne correspond alors pas au résultat attendu. Pour y remédier, il faut vérifier les pixels alentours afin de connaître leurs positions dans le monde 3D. Afin d’arriver à cela, il faut déterminer les zones de textures. Une fois chaque zone définie, on compare la position du point de contact avec celle de chaque zone, ensuite pour les zones potentiellement assez proches, on peut peindre. Afin de finalement obtenir le résultat le plus satisfaisant, d’autres calculs de positions sont pris en compte pour reproduire le plus fidèlement le motif de la texture. Afin de terminer le système de peinture, un dernier programme a été mis en place afin d’aléatoirement choisir la couleur, la taille et la définition de chaque bille. Ces derniers paramètre finalement définis permettent d’augmenter ce résultat de “chaos” souhaité et surtout rendre la peinture plus réelle.",
+        image: "fixedPaint.png",
+        align: "right",
       },
       {
         text: "Finalement, dans le contexte du projet, un système de pourcentage de recouvrement de peinture était nécessaire. Un dernier script a donc été mis en place pour calculer la complétion de la statue. Pour cela dans un premier temps, la texture est analysée pour obtenir le nombre de pixels utilisé dans l’affichage de la texture originelle. Ensuite, à chaque ajout de peinture, on regarde combien de pixels ont été peint sur la render texture. Finalement, un seuil de 75 % a été fixé, et si la Statue est peinte à plus de 75 %, la statue est validée.",
